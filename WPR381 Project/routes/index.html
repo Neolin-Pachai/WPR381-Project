@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Zip collector</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var user;
+        $("#submit").click(function(){
+          zip=$("#zip").val();
+          $.post("http://localhost:8080/zip-post",{zip: zip}, function(data){
+            $('body').replaceWith(data)
+          });
+          //alert("success")
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Enter Zip</h1>
+    <input type="TEXT" id="zip" size="40"><br>
+    <input type="button" id="submit" value="Submit">
+  </body>
+</html>
